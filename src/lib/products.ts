@@ -1,8 +1,9 @@
-import { db } from "@/db";
+import { db, ensureDatabase } from "@/db";
 import { products } from "@/db/schema";
 import type { ProductLite } from "@/lib/consultant/types";
 
 export async function getAllProducts(): Promise<ProductLite[]> {
+  await ensureDatabase();
   const rows = await db.select().from(products);
   return rows.map((r) => ({
     id: r.id,
