@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), var(--font-plex-ar), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), var(--font-plex-ar), Georgia, serif;
+  --color-wine: #571026;
+  --color-wine-dark: #3c0818;
+  --color-blush: #fff6f7;
+  --color-blush-deep: #ffe9ec;
+  --color-gold: #c98a3d;
+}
+
+::selection {
+  background: #fecdd3;
+  color: #4c0519;
+}
+
+/* ------------------------------ motion system ----------------------------- */
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-4deg);
+  }
+}
+.floating-face {
+  animation: bob 3.4s ease-in-out infinite;
+}
+
+@keyframes softPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  70%,
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+.soft-ping {
+  animation: softPing 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes cloudPop {
+  0% {
+    transform: translateY(10px) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.cloud-pop {
+  animation: cloudPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes msgIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.msg-in {
+  animation: msgIn 0.38s cubic-bezier(0.21, 1.02, 0.47, 1) both;
+}
+
+@keyframes chipIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.chip-in {
+  animation: chipIn 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes dotWave {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+.dot {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background: #fb7185;
+  animation: dotWave 1.2s ease-in-out infinite;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes blink {
+  0%,
+  91%,
+  100% {
+    transform: scaleY(1);
+  }
+  94% {
+    transform: scaleY(0.08);
+  }
+}
+.rosy-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 34s linear infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--rot, 0deg));
+  }
+}
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+/* ------------------------------ chat scrollbar ---------------------------- */
+
+.chat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #fecdd3 transparent;
+}
+.chat-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #fecdd3;
+  border-radius: 9999px;
+}
+.chat-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
